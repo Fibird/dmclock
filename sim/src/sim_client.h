@@ -83,6 +83,7 @@ namespace crimson {
 	std::chrono::nanoseconds get_req_params_time;
 	uint32_t track_resp_count;
 	uint32_t get_req_params_count;
+    std::vector<std::chrono::nanoseconds> resp_times;
 
 	InternalStats() :
 	  track_resp_time(0),
@@ -257,8 +258,8 @@ namespace crimson {
 	      while (std::chrono::steady_clock::now() < delay_time) {
 		cv_req.wait_until(l, delay_time);
 	      } // while
-            if (id == 0 && o > 0 && o % 500 == 0) {
-                std::this_thread::sleep_for(std::chrono::milliseconds(4000));
+            if (id == 0 && o > 0 && o % 50000 == 0) {
+                std::this_thread::sleep_for(std::chrono::milliseconds(8000));
             }
 	    } // for
 	    ops_count += i.args.req_params.count;
@@ -300,11 +301,19 @@ namespace crimson {
 	    TestResponse& resp = item.response;
 #endif
 
+/*
 	    time_stats(internal_stats.mtx,
 		       internal_stats.track_resp_time,
 		       [&](){
 			 service_tracker.track_resp(item.server_id, item.resp_params);
 		       });
+*/
+                        time_stats_log(internal_stats.mtx,
+                                   internal_stats.track_resp_time,
+                                   internal_stats.resp_times,
+                                   [&]() {
+                                       service_tracker.track_resp(item.server_id, item.resp_params);
+                                   });
 	    count_stats(internal_stats.mtx,
 			internal_stats.track_resp_count);
 
