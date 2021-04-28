@@ -1,0 +1,127 @@
+/tmp/tmp.NNqRKEiWiP/cmake-build-debug-remote-host/sim/dmc_sim -c /tmp/tmp.NNqRKEiWiP/sim/dmc_sim_test.conf
+[global]
+server_groups = 1
+client_groups = 3
+server_random_selection = 1
+server_soft_limit = 1
+anticipation_timeout = 0.000
+
+[client.0]
+client_count = 1
+client_wait = 0
+client_total_ops = 150000
+client_server_select_range = 10
+client_iops_goal = 7000
+client_outstanding_ops = 5
+client_reservation = 0.0
+client_limit = 7000.0
+client_weight = 1.0
+
+[client.1]
+client_count = 1
+client_wait = 0
+client_total_ops = 150000
+client_server_select_range = 10
+client_iops_goal = 3000
+client_outstanding_ops = 100
+client_reservation = 2000.0
+client_limit = 0.0
+client_weight = 1.0
+
+[client.2]
+client_count = 1
+client_wait = 0
+client_total_ops = 150000
+client_server_select_range = 20
+client_iops_goal = 6000
+client_outstanding_ops = 5
+client_reservation = 0.0
+client_limit = 0.0
+client_weight = 1.0
+
+[server.0]
+server_count = 1
+server_iops = 8000
+server_threads = 1
+
+simulation started
+simulation completed in 88964 millisecs
+==== Client Data ====
+     client:       0       1       2  total
+        t_0: 1528.00 2000.50 1527.50 5056.00
+        t_1: 1523.00 2000.50 1523.50 5047.00
+        t_2: 1530.50 2000.00 1530.50 5061.00
+        t_3: 1528.50 2000.00 1528.00 5056.50
+        t_4: 1524.00 2000.50 1524.50 5049.00
+        t_5: 1528.00 2000.00 1527.50 5055.50
+        t_6: 1522.00 2000.00 1522.50 5044.50
+        t_7: 1522.50 2000.00 1522.50 5045.00
+        t_8: 1523.00 2000.50 1523.00 5046.50
+        t_9: 1522.00 2000.00 1522.00 5044.00
+       t_10: 1522.00 2000.00 1522.00 5044.00
+       t_11: 1528.50 2000.50 1528.00 5057.00
+       t_12: 1525.50 2000.00 1526.00 5051.50
+       t_13: 1522.00 2000.00 1521.50 5043.50
+       t_14: 1518.00 2000.00 1518.50 5036.50
+       t_15: 1513.00 2000.50 1513.00 5026.50
+       t_16:  619.00 2000.00 2430.00 5049.00
+       t_17:    0.00 2000.00 3081.00 5081.00
+       t_18:    0.00 2001.00 3061.00 5062.00
+       t_19:    0.00 2000.50 3072.50 5073.00
+       t_20: 1828.50 2004.50 1247.50 5080.50
+       t_21: 3038.50 2000.00    0.00 5038.50
+       t_22: 3045.00 2000.00    0.50 5045.50
+       t_23: 3057.50 2000.50    0.00 5058.00
+       t_24: 2175.00 2000.00  871.00 5046.00
+       t_25: 1515.50 2000.50 1515.00 5031.00
+       t_26: 1518.50 2000.00 1519.00 5037.50
+       t_27: 1506.50 2000.00 1506.00 5012.50
+       t_28: 1515.00 2000.00 1515.50 5030.50
+       t_29: 1552.00 2000.50 1551.50 5104.00
+       t_30: 1556.50 2000.00 1556.50 5113.00
+       t_31: 1542.50 2000.00 1542.50 5085.00
+       t_32: 1149.00 2000.00 1925.00 5074.00
+       t_33:    0.00 2000.50 3076.50 5077.00
+       t_34:    0.00 2000.00 3074.50 5074.50
+       t_35:    0.00 2000.00 3090.50 5090.50
+       t_36:  775.00 2000.50 2301.00 5076.50
+       t_37: 4039.50  988.50    0.00 5028.00
+       t_38: 5039.50    0.00    0.00 5039.50
+       t_39: 3776.50    0.00 1312.50 5089.00
+       t_40: 2534.00    0.00 2533.00 5067.00
+       t_41: 2536.00    0.00 2536.00 5072.00
+       t_42: 2543.00    0.00 2543.00 5086.00
+       t_43: 2539.00    0.00 2539.50 5078.50
+       t_44: 1217.00    0.00 1218.50 2435.50
+       t_45:    0.00    0.00    0.00    0.00
+    res_ops:       0  149989       0  149989
+   prop_ops:  150000      11  150000  300011
+total time to track responses: 652390708 nanoseconds;
+    count: 450000;
+    average: 1449.76 nanoseconds per request/response
+total time to get request parameters: 713493165 nanoseconds;
+    count: 450000;
+    average: 1585.54 nanoseconds per request/response
+
+client timing for QOS algorithm: 3035.30 nanoseconds per request/response
+client 0's 95th latency: 3494
+client 1's 95th latency: 3630
+client 2's 95th latency: 2130
+
+==== Server Data ====
+     server:       0   total
+    res_ops:  149989  149989
+   prop_ops:  300011  300011
+
+ k-way heap: 2
+
+total time to add requests: 7984221952 nanoseconds;
+    count: 450000;
+    average: 17742.72 nanoseconds per request/response
+total time to note requests complete: 807489312 nanoseconds;
+    count: 450000;
+    average: 1794.42 nanoseconds per request/response
+
+server timing for QOS algorithm: 19537.14 nanoseconds per request/response
+
+Process finished with exit code 0

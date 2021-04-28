@@ -2,3 +2,6 @@
 *.dSYM
 *.o
 build*
+.idea/
+cmake-build-debug/
+cmake-build-debug-remote-host

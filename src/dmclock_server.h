@@ -1450,9 +1450,12 @@ namespace crimson {
 	PushPriorityQueue(_client_info_f,
 			  _can_handle_f,
 			  _handle_f,
-			  std::chrono::minutes(10),
-			  std::chrono::minutes(15),
-			  std::chrono::minutes(6),
+//			  std::chrono::minutes(10),
+//			  std::chrono::minutes(15),
+//			  std::chrono::minutes(6),
+                      std::chrono::seconds(2),
+                      std::chrono::seconds(900),
+                      std::chrono::seconds(1),
 			  _allow_limit_break,
 			  _anticipation_timeout)
       {
