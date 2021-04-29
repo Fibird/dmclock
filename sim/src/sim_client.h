@@ -267,7 +267,7 @@ namespace crimson {
 
                             ////////////////// burst application /////////////////
                             if (id == 0 && o > 0 && o % 60000 == 0) {// 60000, 9000
-                                delay_time += std::chrono::milliseconds(15000);
+                                delay_time += std::chrono::milliseconds(12000);
                             }
 ////////////////// burst application /////////////////
 
